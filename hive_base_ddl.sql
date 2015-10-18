@@ -13,7 +13,7 @@ CREATE EXTERNAL TABLE Hospitals (ProviderID varchar(500)
 ,Hospital_Ownership varchar(500)
 ,Emergency_Services varchar(500))
 ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ‘,’
+FIELDS TERMINATED BY ","
 STORED AS TEXTFILE
 LOCATION ‘./Ex1_Hospital_Data/Tables’;
 
