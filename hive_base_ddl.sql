@@ -12,7 +12,7 @@ CREATE EXTERNAL TABLE Hospitals (ProviderID varchar(500)
 ,Hospital_Type varchar(500)
 ,Hospital_Ownership varchar(500)
 ,Emergency_Services varchar(500))
-ROW FORMAT SERDE '.org.apache.serde2.OpenCSVSerde' 
+ROW FORMAT SERDE '.org.apache.hive.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ( 
 "separatorchar"  = ",",
 "quoteChar" = '"',
