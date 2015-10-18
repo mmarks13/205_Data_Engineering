@@ -12,14 +12,9 @@ CREATE EXTERNAL TABLE Hospitals (ProviderID varchar(500)
 ,Hospital_Type varchar(500)
 ,Hospital_Ownership varchar(500)
 ,Emergency_Services varchar(500))
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( 
-"separatorchar"  = ",",
-"quoteChar" = '"',
-"escapeChar" = '\\'
-)
+FIELDS TERMINATED BY ‘,’
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Hospitals/";
+LOCATION "/user/w205/Ex1_Hospital_Data/Hospitals";
 
 
 DROP TABLE Effective_Care;
@@ -39,14 +34,9 @@ CREATE EXTERNAL TABLE Effective_Care (ProviderID varchar(500)
 ,Footnote varchar(500)
 ,Meaure_Start_Date varchar(500)
 ,Measure_End_Date varchar(500))
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( 
-"separatorchar"  = ",",
-"quoteChar" = '"',
-"escapeChar" = '\\'
-)
+FIELDS TERMINATED BY ‘,’
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Effective_Care/";
+LOCATION "/user/w205/Ex1_Hospital_Data/Effective_Care";
 
 
 
@@ -69,14 +59,9 @@ CREATE EXTERNAL TABLE Readmissions (ProviderID varchar(500)
 ,Footnote varchar(500)
 ,Measure_Start_Date varchar(500)
 ,Measure_End_Date varchar(500))
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( 
-"separatorchar"  = ",",
-"quoteChar" = '"',
-"escapeChar" = '\\'
-)
+FIELDS TERMINATED BY ‘,’
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Readmissions/";
+LOCATION "/user/w205/Ex1_Hospital_Data/Readmissions";
 
 
 
@@ -114,14 +99,9 @@ CREATE EXTERNAL TABLE Survey_Results (ProviderID varchar(500)
 ,Overall_Dimension_Score varchar(500)
 ,HCAHPS_Base_Score varchar(500)
 ,HCAHPS_Consistency_Score varchar(500))
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( 
-"separatorchar"  = ",",
-"quoteChar" = '"',
-"escapeChar" = '\\'
-)
+FIELDS TERMINATED BY ‘,’
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Survey_Results/";
+LOCATION "/user/w205/Ex1_Hospital_Data/Survey_Results";
 
 
 
@@ -134,12 +114,7 @@ CREATE EXTERNAL TABLE Measure_Dates (Measure_Name varchar(500)
 ,Measure_End_Quarter varchar(500)
 ,Measure_End_Date varchar(500)
 )
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( 
-"separatorchar"  = ",",
-"quoteChar" = '"',
-"escapeChar" = '\\'
-)
+FIELDS TERMINATED BY ‘,’
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Measure_Dates/";
+LOCATION "/user/w205/Ex1_Hospital_Data/Measure_Dates";
 
