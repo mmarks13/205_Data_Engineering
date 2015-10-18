@@ -1,4 +1,4 @@
-#Using varchar for data type to account for unknown data issues. 
+/* Using varchar for data type to account for unknown data issues. */
 
 DROP TABLE Hospitals;
 CREATE EXTERNAL TABLE Hospitals (ProviderID, varchar(500)
