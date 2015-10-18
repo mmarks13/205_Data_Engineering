@@ -19,7 +19,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Hospitals/";
+LOCATION "/home/w205/Hospital_Data/Hospitals/";
 
 
 DROP TABLE Effective_Care;
@@ -46,7 +46,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Effective_Care/";
+LOCATION "/home/w205/Hospital_Data/Effective_Care/";
 
 
 
@@ -76,7 +76,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Readmissions/";
+LOCATION "/home/w205/Hospital_Data/Readmissions/";
 
 
 
@@ -121,7 +121,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Survey_Results/";
+LOCATION "/home/w205/Hospital_Data/Survey_Results/";
 
 
 
@@ -141,5 +141,5 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION "/user/w205/Hospital_Data/Measure_Dates/";
+LOCATION "/home/w205/Hospital_Data/Measure_Dates/";
 
