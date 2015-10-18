@@ -15,7 +15,7 @@ CREATE EXTERNAL TABLE Hospitals (ProviderID varchar(500)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ","
 STORED AS TEXTFILE
-LOCATION ‘./Ex1_Hospital_Data/Tables’;
+LOCATION "/Ex1_Hospital_Data/Tables";
 
 DROP TABLE Effective_Care;
 CREATE EXTERNAL TABLE Effective_Care (ProviderID varchar(500)
