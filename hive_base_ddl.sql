@@ -14,8 +14,8 @@ CREATE EXTERNAL TABLE Hospitals (ProviderID varchar(500)
 ,Emergency_Services varchar(500))
 ROW FORMAT SERDE '.org.apache.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ( 
-"separatorchar"  = ","
-"quoteChar" = '"'
+"separatorchar"  = ",",
+"quoteChar" = '"',
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
@@ -40,8 +40,8 @@ CREATE EXTERNAL TABLE Effective_Care (ProviderID varchar(500)
 ,Measure_End_Date varchar(500))
 ROW FORMAT SERDE '.org.apache.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ( 
-"separatorchar"  = ","
-"quoteChar" = '"'
+"separatorchar"  = ",",
+"quoteChar" = '"',
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
@@ -69,8 +69,8 @@ CREATE EXTERNAL TABLE Readmissions (ProviderID varchar(500)
 ,Measure_End_Date varchar(500))
 ROW FORMAT SERDE '.org.apache.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ( 
-"separatorchar"  = ","
-"quoteChar" = '"'
+"separatorchar"  = ",",
+"quoteChar" = '"',
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
@@ -113,8 +113,8 @@ CREATE EXTERNAL TABLE Survey_Results (ProviderID varchar(500)
 ,HCAHPS_Consistency_Score varchar(500))
 ROW FORMAT SERDE '.org.apache.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ( 
-"separatorchar"  = ","
-"quoteChar" = '"'
+"separatorchar"  = ",",
+"quoteChar" = '"',
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
@@ -132,8 +132,8 @@ CREATE EXTERNAL TABLE Measure_Dates (Measure_Name varchar(500)
 )
 ROW FORMAT SERDE '.org.apache.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ( 
-"separatorchar"  = ","
-"quoteChar" = '"'
+"separatorchar"  = ",",
+"quoteChar" = '"',
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
