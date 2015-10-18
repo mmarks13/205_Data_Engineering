@@ -15,7 +15,7 @@ CREATE EXTERNAL TABLE Hospitals (ProviderID varchar(500)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ","
 STORED AS TEXTFILE
-LOCATION "/Ex1_Hospital_Data/Tables";
+LOCATION "/user/w205/Ex1_Hospital_Data/Tables";
 
 DROP TABLE Effective_Care;
 CREATE EXTERNAL TABLE Effective_Care (ProviderID varchar(500)
@@ -38,7 +38,7 @@ CREATE EXTERNAL TABLE Effective_Care (ProviderID varchar(500)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ","
 STORED AS TEXTFILE
-LOCATION "/Ex1_Hospital_Data/Tables";
+LOCATION "/user/w205/Ex1_Hospital_Data/Tables";
 
 
 DROP TABLE Readmissions;
@@ -63,7 +63,7 @@ CREATE EXTERNAL TABLE Readmissions (ProviderID varchar(500)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ","
 STORED AS TEXTFILE
-LOCATION "/Ex1_Hospital_Data/Tables";
+LOCATION "/user/w205/Ex1_Hospital_Data/Tables";
 
 
 DROP TABLE Survey_Results;
@@ -103,5 +103,5 @@ CREATE EXTERNAL TABLE Survey_Results (ProviderID varchar(500)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ","
 STORED AS TEXTFILE
-LOCATION "/Ex1_Hospital_Data/Tables";
+LOCATION "/user/w205/Ex1_Hospital_Data/Tables";
 
