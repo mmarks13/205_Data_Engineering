@@ -21,6 +21,8 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION "/user/w205/Ex1_Hospital_Data/Hospitals";
 
+hadoop dfs -put /user/w205/Ex1_Hospital_Data/Hospitals/hospitals.csv /user/w205/Ex1_Hospital_Data/Hospitals
+
 DROP TABLE Effective_Care;
 CREATE EXTERNAL TABLE Effective_Care (ProviderID varchar(500)
 ,Hospital_Name varchar(500)
@@ -46,6 +48,8 @@ WITH SERDEPROPERTIES (
 )
 STORED AS TEXTFILE
 LOCATION "/user/w205/Ex1_Hospital_Data/Effective_Care";
+
+hadoop dfs -put /user/w205/Ex1_Hospital_Data/Effective_Care/effective_care.csv /user/w205/Ex1_Hospital_Data/Effective_Care
 
 
 DROP TABLE Readmissions;
@@ -75,6 +79,9 @@ WITH SERDEPROPERTIES (
 )
 STORED AS TEXTFILE
 LOCATION "/user/w205/Ex1_Hospital_Data/Readmissions";
+
+hadoop dfs -put /user/w205/Ex1_Hospital_Data/Readmissions/readmissions.csv /user/w205/Ex1_Hospital_Data/Readmissions
+
 
 
 DROP TABLE Survey_Results;
@@ -120,6 +127,9 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION "/user/w205/Ex1_Hospital_Data/Survey_Results";
 
+hadoop dfs -put /user/w205/Ex1_Hospital_Data/Survey_Results/survey_responses.csv /user/w205/Ex1_Hospital_Data/Survey_Results
+
+
 
 
 DROP TABLE Measure_Dates;
@@ -138,3 +148,5 @@ WITH SERDEPROPERTIES (
 )
 STORED AS TEXTFILE
 LOCATION "/user/w205/Ex1_Hospital_Data/Measure_Dates";
+
+hadoop dfs -put /user/w205/Ex1_Hospital_Data/Measure_Dates/MeasureDates.csv /user/w205/Ex1_Hospital_Data/Measure_Dates
