@@ -149,4 +149,3 @@ WITH SERDEPROPERTIES (
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/measure_dates';
-
