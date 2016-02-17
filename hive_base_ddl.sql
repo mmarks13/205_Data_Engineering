@@ -1,5 +1,5 @@
-DROP TABLE tbl_Hospitals
-CREATE EXTERNAL TABLE tbl_Hospitals
+DROP TABLE tbl_Hospitals;
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Hospitals
 (
 Provider_ID varchar(50),
 Hospital_Name string,
@@ -23,8 +23,8 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/hospitals';
 
 
-DROP TABLE tbl_Effective_Care
-CREATE EXTERNAL TABLE tbl_Effective_Care
+DROP TABLE tbl_Effective_Care;
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Effective_Care
 (
 Provider_ID varchar(50),
 Hospital_Name string,
@@ -52,8 +52,8 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/effective_care';
 
-DROP TABLE tbl_Readmissions
-CREATE EXTERNAL TABLE tbl_Readmissions
+DROP TABLE tbl_Readmissions;
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Readmissions
 (
 Provider_ID varchar(50),
 Hospital_Name string,
@@ -84,8 +84,8 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_Readmissions';
 
 
-DROP TABLE tbl_Survey_Responses
-CREATE EXTERNAL TABLE tbl_Survey_Responses
+DROP TABLE tbl_Survey_Responses;
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Survey_Responses
 (
 Provider_ID varchar(50),
 Hospital_Name string,
@@ -131,21 +131,18 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/survey_responses';
 
 
-DROP TABLE tbl_Measure_Dates
-CREATE EXTERNAL TABLE tbl_Measure_Dates
-(
-Measure_Name string,
+DROP TABLE tbl_Measure_Dates;
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Measure_Dates
+(Measure_Name string,
 Measure_ID string,
 Measure_Start_Quarter string,
 Measure_Start_Date timestamp,
 Measure_End_Quarter string,
-Measure_End_Date timestamp
-)
+Measure_End_Date timestamp)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
    "separatorChar" = ",",
    "quoteChar"     = '"',
-   "escapeChar"    = '\\'
-)
+   "escapeChar"    = '\\')
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/measure_dates';
