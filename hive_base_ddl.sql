@@ -1,7 +1,6 @@
 DROP TABLE tbl_Hospitals;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Hospitals
-(
-Provider_ID varchar(50),
+(Provider_ID varchar(50),
 Hospital_Name string,
 Address string,
 City string,
@@ -11,22 +10,19 @@ County_Name string,
 Phone_Number string,
 Hospital_Type string,
 Hospital_Ownership string,
-Emergency_Services string
-)
+Emergency_Services string)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
    "separatorChar" = ",",
    "quoteChar"     = '"',
-   "escapeChar"    = '\\'
-)
+   "escapeChar"    = '\\')
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_hospitals';
 
 
 DROP TABLE tbl_Effective_Care;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Effective_Care
-(
-Provider_ID varchar(50),
+(Provider_ID varchar(50),
 Hospital_Name string,
 Address string,
 City string,
@@ -41,21 +37,18 @@ Score float,
 Sample float,
 Footnote string,
 Measure_Start_Date date,
-Measure_End_Date date
-)
+Measure_End_Date date)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
    "separatorChar" = ",",
    "quoteChar"     = '"',
-   "escapeChar"    = '\\'
-)
+   "escapeChar"    = '\\')
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_effective_care';
 
 DROP TABLE tbl_Readmissions;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Readmissions
-(
-Provider_ID varchar(50),
+(Provider_ID varchar(50),
 Hospital_Name string,
 Address string,
 City string,
@@ -72,22 +65,19 @@ Lower_Estimate float,
 Higher_Estimate float,
 Footnote string,
 Measure_Start_Date date,
-Measure_End_Date date
-)
+Measure_End_Date date)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
    "separatorChar" = ",",
    "quoteChar"     = '"',
-   "escapeChar"    = '\\'
-)
+   "escapeChar"    = '\\')
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_readmissions';
 
 
 DROP TABLE tbl_Survey_Responses;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Survey_Responses
-(
-Provider_ID varchar(50),
+(Provider_ID varchar(50),
 Hospital_Name string,
 Address string,
 City string,
@@ -119,14 +109,12 @@ Overall_Rating_of_Hospital_Achievement_Points string,
 Overall_Rating_of_Hospital_Improvement_Points string,
 Overall_Rating_of_Hospital_Dimension_Score string,
 HCAHPS_Base_Score float,
-HCAHPS_Consistency_Score float
-)
+HCAHPS_Consistency_Score float)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
    "separatorChar" = ",",
    "quoteChar"     = '"',
-   "escapeChar"    = '\\'
-)
+   "escapeChar"    = '\\')
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_survey_responses';
 
