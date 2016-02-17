@@ -15,9 +15,9 @@ Emergency_Services string
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
-separatorChar = ,,
-quoteChar = '',
-escapeChar = '\\'
+   "separatorChar" = ",",
+   "quoteChar"     = '"',
+   "escapeChar"    = '\\'
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/hospitals';
@@ -45,9 +45,9 @@ Measure_End_Date date
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
-separatorChar = ,,
-quoteChar = '',
-escapeChar = '\\'
+   "separatorChar" = ",",
+   "quoteChar"     = '"',
+   "escapeChar"    = '\\'
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/effective_care';
@@ -76,9 +76,9 @@ Measure_End_Date date
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
-separatorChar = ,,
-quoteChar = '',
-escapeChar = '\\'
+   "separatorChar" = ",",
+   "quoteChar"     = '"',
+   "escapeChar"    = '\\'
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_Readmissions';
@@ -123,9 +123,9 @@ HCAHPS_Consistency_Score float
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
-separatorChar = ,,
-quoteChar = '',
-escapeChar = '\\'
+   "separatorChar" = ",",
+   "quoteChar"     = '"',
+   "escapeChar"    = '\\'
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/survey_responses';
@@ -143,9 +143,9 @@ Measure_End_Date timestamp
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES (
-separatorChar = ,,
-quoteChar = '',
-escapeChar = '\\'
+   "separatorChar" = ",",
+   "quoteChar"     = '"',
+   "escapeChar"    = '\\'
 )
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/measure_dates';
