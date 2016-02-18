@@ -14,10 +14,10 @@ mkdir /home/w205/Ex1_Raw_Hospital_Data
 wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s -O /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data
 
 #unzip the file
-unzip /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data 
+unzip /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data -d /home/w205/Ex1_Raw_Hospital_Data/
 
 #remove the spaces in the filenames
-for file in /home/w205/Ex1_Raw_Hospital_Data/*.csv; do mv /home/w205/Ex1_Raw_Hospital_Data/$file /home/w205/Ex1_Raw_Hospital_Data/${file//[[:space:]]}; done
+for file in /home/w205/Ex1_Raw_Hospital_Data/*.csv; do mv $file ${file//[[:space:]]}; done
 
 #rename our tables of interest
 mv /home/w205/Ex1_Raw_Hospital_Data/HospitalGeneralInformation.csv /home/w205/Ex1_Raw_Hospital_Data/hospitals.csv
