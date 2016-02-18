@@ -1,5 +1,7 @@
-#switch to w205 user
-su - w205
+#if you are the root user, switch to w205 user
+if (( $EUID != 0 )); then
+    su - w205
+fi
 
 #make sure we are in the home directory
 cd
