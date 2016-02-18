@@ -10,13 +10,8 @@ rm -rf /home/w205/Ex1_Raw_Hospital_Data/
 #Create a folder for all the unzipped files
 mkdir /home/w205/Ex1_Raw_Hospital_Data
 
-cd /home/w205
 #download the file save a Hospital_Data in home directory
-wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
-
-
-#move the zip file there
-mv /home/w205/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data
+wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s -O /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data
 
 #unzip the file
 unzip /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data 
