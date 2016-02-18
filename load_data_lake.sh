@@ -10,19 +10,19 @@ rm -rf /home/w205/Ex1_Raw_Hospital_Data/
 #Create a folder for all the unzipped files
 mkdir /home/w205/Ex1_Raw_Hospital_Data
 
-
+cd /home/w205
 #download the file save a Hospital_Data in home directory
-wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip -O /home/w205/Ex1_Raw_Hospital_Data
+wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
 
 
 #move the zip file there
-mv /home/w205/Ex1_Raw_Hospital_Data/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data
+mv /home/w205/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data
 
 #unzip the file
 unzip /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data 
 
 #remove the spaces in the filenames
-for file in *.csv; do mv $file ${file//[[:space:]]}; done
+for file in /home/w205/Ex1_Raw_Hospital_Data/*.csv; do mv /home/w205/Ex1_Raw_Hospital_Data/$file /home/w205/Ex1_Raw_Hospital_Data/${file//[[:space:]]}; done
 
 #rename our tables of interest
 mv /home/w205/Ex1_Raw_Hospital_Data/HospitalGeneralInformation.csv /home/w205/Ex1_Raw_Hospital_Data/hospitals.csv
@@ -33,7 +33,7 @@ mv /home/w205/Ex1_Raw_Hospital_Data/MeasureDates.csv /home/w205/Ex1_Raw_Hospital
 
 
 #delete existing HDFS directory that this code creates. 
-hdfs dfs -rm -r hdfs://user/w205/hospital_compare/
+hdfs dfs -rm -r /user/w205/hospital_compare/
 
 #make HDFS directory for this exercise
 hdfs dfs -mkdir /user/w205/hospital_compare
