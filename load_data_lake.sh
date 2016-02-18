@@ -1,12 +1,8 @@
-#if not root, switch to root 
-if (( $EUID != 0 )); then
-    exit
-fi
-#delete existing directory that this code creates. 
-rm -rf /home/w205/Ex1_Raw_Hospital_Data/
-
 #switch to w205 user
 su - w205
+
+#make sure we are in the home directory
+cd
 
 #download the file
 wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
