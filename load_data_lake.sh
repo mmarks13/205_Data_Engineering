@@ -39,8 +39,8 @@ hdfs dfs -mkdir /user/w205/hospital_compare/tbl_survey_responses
 hdfs dfs -mkdir /user/w205/hospital_compare/tbl_measure_dates
 
 #Move our tables of interest into HDFS
-hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/Ex1_Raw_Hospital_Data/hospitals.csv /user/w205/hospital_compare/tbl_hospitals/hospitals
-hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/Ex1_Raw_Hospital_Data/effective_care.csv /user/w205/hospital_compare/tbl_effective_care/effective_care
-hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/Ex1_Raw_Hospital_Data/readmissions.csv /user/w205/hospital_compare/tbl_readmissions/readmissions
-hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/Ex1_Raw_Hospital_Data/survey_responses.csv /user/w205/hospital_compare/tbl_survey_responses/survey_responses
-hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/Ex1_Raw_Hospital_Data/measure_dates.csv /user/w205/hospital_compare/tbl_measure_dates/measure_dates
+hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/hospitals.csv /user/w205/hospital_compare/tbl_hospitals/hospitals
+hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/effective_care.csv /user/w205/hospital_compare/tbl_effective_care/effective_care
+hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/readmissions.csv /user/w205/hospital_compare/tbl_readmissions/readmissions
+hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/survey_responses.csv /user/w205/hospital_compare/tbl_survey_responses/survey_responses
+hdfs dfs -put /home/w205/Ex1_Raw_Hospital_Data/measure_dates.csv /user/w205/hospital_compare/tbl_measure_dates/measure_dates
