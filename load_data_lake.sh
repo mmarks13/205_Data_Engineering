@@ -16,7 +16,7 @@ wget https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcy
 
 
 #move the zip file there
-mv /home/w205/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data
+mv /home/w205/Ex1_Raw_Hospital_Data/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_ /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data
 
 #unzip the file
 unzip /home/w205/Ex1_Raw_Hospital_Data/Hospital_Data 
@@ -33,7 +33,7 @@ mv /home/w205/Ex1_Raw_Hospital_Data/MeasureDates.csv /home/w205/Ex1_Raw_Hospital
 
 
 #delete existing HDFS directory that this code creates. 
-hdfs dfs -rm -rf /user/w205/hospital_compare/
+hdfs dfs -rm -r hdfs://user/w205/hospital_compare/
 
 #make HDFS directory for this exercise
 hdfs dfs -mkdir /user/w205/hospital_compare
