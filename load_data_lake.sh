@@ -1,7 +1,10 @@
 #switch user to w205
 su - w205
 
-#delete existing directory
+#go to home directory
+cd
+
+#delete existing directory that this code creates. 
 rm -rf /home/w205/Ex1_Raw_Hospital_Data/
 
 #download the file
