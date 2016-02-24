@@ -1,8 +1,0 @@
-from pyspark.sql import HiveContext
-sqlContext = HiveContext(sc)
-
-sqlContext.sql("CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Hospitals (Provider_ID varchar(50), Hospital_Name string, Address string, City string, State string, ZIP_Code bigint, County_Name string, Phone_Number string, Hospital_Type string, Hospital_Ownership string, Emergency_Services string) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES (\"separatorChar\" = \",\", \"quoteChar\"='\"', \"escapeChar\"='\') STORED AS TEXTFILE LOCATION '/user/w205/hospital_compare/tbl_hospitals'")
-
-
-
-sqlContext.sql("select * from tbl_Hospitals").rdd.saveAsTextFile("tbl_Hospitals")
