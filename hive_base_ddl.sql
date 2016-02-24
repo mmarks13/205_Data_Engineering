@@ -1,4 +1,4 @@
-DROP TABLE tbl_Hospitals;
+DROP TABLE tbl_Hospitals_RAW;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Hospitals_RAW
 (Provider_ID varchar(50),
 Hospital_Name string,
@@ -20,7 +20,7 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_hospitals';
 
 
-DROP TABLE tbl_Effective_Care;
+DROP TABLE tbl_Effective_Care_RAW;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Effective_Care_RAW
 (Provider_ID varchar(50),
 Hospital_Name string,
@@ -46,7 +46,7 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_effective_care';
 
-DROP TABLE tbl_Readmissions;
+DROP TABLE tbl_Readmissions_RAW;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Readmissions_RAW
 (Provider_ID varchar(50),
 Hospital_Name string,
@@ -75,7 +75,7 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_readmissions';
 
 
-DROP TABLE tbl_Survey_Responses;
+DROP TABLE tbl_Survey_Responses_RAW;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Survey_Responses_RAW
 (Provider_ID varchar(50),
 Hospital_Name string,
@@ -119,7 +119,7 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_survey_responses';
 
 
-DROP TABLE tbl_Measure_Dates;
+DROP TABLE tbl_Measure_Dates_RAW;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Measure_Dates_RAW
 (Measure_Name string,
 Measure_ID string,
