@@ -17,7 +17,7 @@ WITH SERDEPROPERTIES (
    "quoteChar"     = '"',
    "escapeChar"    = '\\')
 STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare/tbl_hospitals';
+LOCATION '/user/w205/hospital_compare/tbl_hospitals_RAW';
 
 
 DROP TABLE tbl_Effective_Care_RAW;
@@ -44,7 +44,7 @@ WITH SERDEPROPERTIES (
    "quoteChar"     = '"',
    "escapeChar"    = '\\')
 STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare/tbl_effective_care';
+LOCATION '/user/w205/hospital_compare/tbl_effective_care_RAW';
 
 DROP TABLE tbl_Readmissions_RAW;
 CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Readmissions_RAW
@@ -72,7 +72,7 @@ WITH SERDEPROPERTIES (
    "quoteChar"     = '"',
    "escapeChar"    = '\\')
 STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare/tbl_readmissions';
+LOCATION '/user/w205/hospital_compare/tbl_readmissions_RAW';
 
 
 DROP TABLE tbl_Survey_Responses_RAW;
@@ -116,7 +116,7 @@ WITH SERDEPROPERTIES (
    "quoteChar"     = '"',
    "escapeChar"    = '\\')
 STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare/tbl_survey_responses';
+LOCATION '/user/w205/hospital_compare/tbl_survey_responses_RAW';
 
 
 DROP TABLE tbl_Measure_Dates_RAW;
@@ -133,4 +133,4 @@ WITH SERDEPROPERTIES (
    "quoteChar"     = '"',
    "escapeChar"    = '\\')
 STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare/tbl_measure_dates';
+LOCATION '/user/w205/hospital_compare/tbl_measure_dates_RAW';
