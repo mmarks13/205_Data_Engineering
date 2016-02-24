@@ -1,0 +1,7 @@
+
+from pyspark.sql import HiveContext
+sqlContext = HiveContext(sc)
+
+sqlContext.sql("CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Effective_Care (Provider_ID varchar(50), Hospital_Name string, Address string, City string, State string, ZIP_Code bigint, County_Name string, Phone_Number string, Condition string, Measure_ID string, Measure_Name string, Score float, Sample float, Footnote string, Measure_Start_Date date, Measure_End_Date date) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES (\"separatorChar\" = \",\", \"quoteChar\" = '\"', \"escapeChar\" = '\') STORED AS TEXTFILE LOCATION '/user/w205/hospital_compare/tbl_effective_care'")
+
+sqlContext.sql("Select Provider_ID, Measure_ID, Score, Sample, Footnote From tbl_Effective_Care where Score <> 'Not Available'").rdd.saveAsTextFile("tbl_Effective_Care")

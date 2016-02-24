@@ -1,5 +1,5 @@
 DROP TABLE tbl_Hospitals;
-CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Hospitals
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Hospitals_RAW
 (Provider_ID varchar(50),
 Hospital_Name string,
 Address string,
@@ -21,7 +21,7 @@ LOCATION '/user/w205/hospital_compare/tbl_hospitals';
 
 
 DROP TABLE tbl_Effective_Care;
-CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Effective_Care
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Effective_Care_RAW
 (Provider_ID varchar(50),
 Hospital_Name string,
 Address string,
@@ -47,7 +47,7 @@ STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/tbl_effective_care';
 
 DROP TABLE tbl_Readmissions;
-CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Readmissions
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Readmissions_RAW
 (Provider_ID varchar(50),
 Hospital_Name string,
 Address string,
@@ -76,7 +76,7 @@ LOCATION '/user/w205/hospital_compare/tbl_readmissions';
 
 
 DROP TABLE tbl_Survey_Responses;
-CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Survey_Responses
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Survey_Responses_RAW
 (Provider_ID varchar(50),
 Hospital_Name string,
 Address string,
@@ -120,7 +120,7 @@ LOCATION '/user/w205/hospital_compare/tbl_survey_responses';
 
 
 DROP TABLE tbl_Measure_Dates;
-CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Measure_Dates
+CREATE EXTERNAL TABLE IF NOT EXISTS tbl_Measure_Dates_RAW
 (Measure_Name string,
 Measure_ID string,
 Measure_Start_Quarter string,
