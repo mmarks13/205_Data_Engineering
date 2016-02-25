@@ -26,6 +26,6 @@ for i in range(1,len(df_Survey_Responses.columns)):
 SparkDF_Survey_Responses = sqlContext.createDataFrame(df_Survey_Responses).rdd
 
 SparkDF_Survey_Responses.saveAsTextFile("/user/w205/hospital_compare_txt_TRANSFORMED/txt_survey_responses/")
-sqlContext.createDataFrame(SparkDF_Survey_Responses).write.parquet("/user/w205/hospital_compare_txt_TRANSFORMED/txt_survey_responses/")
+sqlContext.createDataFrame(SparkDF_Survey_Responses).write.parquet("/user/w205/hospital_compare_tbl_TRANSFORMED/tbl_survey_responses/")
 
 exit()
