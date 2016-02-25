@@ -1,3 +1,6 @@
+from pyspark import SparkContext
+sc = SparkContext()
+
 from pyspark.sql import HiveContext
 sqlContext = HiveContext(sc)
 
