@@ -33,7 +33,7 @@ Measure_Count_By_State = All_Measures_Z_Scores_By_State.groupBy('State').count()
 
 Avg_Z_Scores_By_State = All_Measures_Z_Scores_By_State.groupBy('State').avg('Z_Score').join(Measure_Count_By_State,'State').where("count > 20")
 
-Top_Ten_States = Avg_Z_Scores_By_State.orderBy(['avg(Z_Score)', 'State'], ascending=[0, 1]).limit(10)
+Top_Ten_States = Avg_Z_Scores_By_Hospital.orderBy(['avg(Z_Score)', 'State'], ascending=[0, 1]).limit(10)
 
 Top_Ten_States.select('State').rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/best_states")
 
