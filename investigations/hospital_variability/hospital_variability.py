@@ -3,7 +3,7 @@ sc = SparkContext()
 
 from pyspark.sql import HiveContext
 sqlContext = HiveContext(sc)
-import org.apache.spark.sql.functions.stddev_pop
+
 tbl_effective_care = sqlContext.read.parquet("/user/w205/hospital_compare_tbl_TRANSFORMED/tbl_effective_care/*parquet")
 tbl_effective_care.registerTempTable("tbl_effective_care")
 
@@ -23,5 +23,5 @@ CoV_By_Measure_Name = CoV_by_Measure_ID.join(tbl_measure_dates,"Measure_ID").sel
 
 Top_Ten_Varying_Procedures = CoV_By_Measure_Name.orderBy(['CoV', 'Measure_Name'], ascending=[0, 1]).limit(10)
 
-Top_Ten_Varying_Procedures.rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/hospital_variability")
+Top_Ten_Varying_Procedures.select('Measure_Name').rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/hospital_variability")
 
