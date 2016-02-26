@@ -5,6 +5,7 @@ sc = SparkContext()
 from pyspark.sql import HiveContext
 sqlContext = HiveContext(sc)
 
+import pandas as pd
 
 tbl_hospitals = sqlContext.read.parquet("/user/w205/hospital_compare_tbl_TRANSFORMED/tbl_hospitals/*parquet")
 tbl_hospitals.registerTempTable("tbl_hospitals")
@@ -12,14 +13,9 @@ tbl_hospitals.registerTempTable("tbl_hospitals")
 tbl_effective_care = sqlContext.read.parquet("/user/w205/hospital_compare_tbl_TRANSFORMED/tbl_effective_care/*parquet")
 tbl_effective_care.registerTempTable("tbl_effective_care")
 
-tbl_measure_dates = sqlContext.read.parquet("/user/w205/hospital_compare_tbl_TRANSFORMED/tbl_measure_dates/*parquet")
-tbl_measure_dates.registerTempTable("tbl_measure_dates")
-
 tbl_readmissions = sqlContext.read.parquet("/user/w205/hospital_compare_tbl_TRANSFORMED/tbl_readmissions/*parquet")
 tbl_readmissions.registerTempTable("tbl_readmissions")
 
-tbl_survey_responses = sqlContext.read.parquet("/user/w205/hospital_compare_tbl_TRANSFORMED/tbl_survey_responses/*parquet")
-tbl_survey_responses.registerTempTable("tbl_survey_responses")
 
 
 Effective_Care_Measure_Mean_StdDev = sqlContext.sql("Select Measure_ID, avg(Score) as Mean, stddev(Score) as StdDev From tbl_effective_care group by Measure_ID")
