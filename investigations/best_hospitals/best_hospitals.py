@@ -38,8 +38,8 @@ All_Measures_Z_Scores_By_Hospital = All_Measures_By_Provider_ID_Z_Scores.join(tb
 Measure_Count_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('Hospital_Name').count()
 
 Avg_Z_Scores_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').avg('Z_Score').join(Measure_Count_By_Hospital,'hospital_name').where("count > 20")
-
+Avg_Z_Scores_By_Hospital.cache()
 Top_Ten_Hospitals = Avg_Z_Scores_By_Hospital.orderBy(['avg(Z_Score)', 'hospital_name'], ascending=[0, 1]).limit(10)
-
-Top_Ten_Hospitals.select('hospital_name').toPandas().to_csv("/home/w205/Ex_1_github/Top_Ten_Hospitals/investigations/Top_10_hospitals.txt")
+Top_Ten_Hospitals.cache()
+Top_Ten_Hospitals.select('hospital_name').toPandas().to_csv("/user/w205/hospital_compare_INVESTIGATIONS/best_hospitals")
 
