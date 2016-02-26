@@ -19,3 +19,12 @@ hive -f /home/w205/Ex_1_github/hive_base_ddl.sql
 /data/spark15/bin/pyspark /home/w205/Ex_1_github/transforming/transform_tbl_Readmission.py
 /data/spark15/bin/pyspark /home/w205/Ex_1_github/transforming/transform_tbl_Survey_Responses.py
 /data/spark15/bin/pyspark /home/w205/Ex_1_github/transforming/transform_tbl_Measure_Dates.py
+
+
+
+/data/spark15/bin/pyspark /home/w205/Ex_1_github/investigations/best_hospitals/best_hospitals.py
+/data/spark15/bin/pyspark /home/w205/Ex_1_github/investigations/best_states/best_states.py
+
+
+hdfs dfs -cat /user/w205/hospital_compare_INVESTIGATIONS/best_hospitals/*
+hdfs dfs -cat /user/w205/hospital_compare_INVESTIGATIONS/best_states/*

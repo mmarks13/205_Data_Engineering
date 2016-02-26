@@ -29,8 +29,10 @@ mv /home/w205/Ex1_Raw_Hospital_Data/MeasureDates.csv /home/w205/Ex1_Raw_Hospital
 
 #delete existing HDFS directory that this and future code creates. 
 hdfs dfs -rm -r /user/w205/hospital_compare_RAW/
+hdfs dfs -rm -r /user/w205/hospital_compare_TRANSFORMED/
 hdfs dfs -rm -r /user/w205/hospital_compare_txt_TRANSFORMED/
 hdfs dfs -rm -r /user/w205/hospital_compare_tbl_TRANSFORMED/
+hdfs dfs -rm -r /user/w205/hospital_compare_INVESTIGATIONS/
 
 #make HDFS directory for this exercise
 hdfs dfs -mkdir /user/w205/hospital_compare_RAW

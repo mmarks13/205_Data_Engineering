@@ -21,10 +21,8 @@ Effective_Care_Measures_By_Provider_ID = sqlContext.sql("Select Provider_ID, Mea
 Readmissions_Measures_By_Provider_ID = sqlContext.sql("Select Provider_ID, Measure_ID, avg(Score) as Score From tbl_readmissions group by Provider_ID, Measure_ID")
 
 All_Measures_By_Provider_ID = Effective_Care_Measures_By_Provider_ID.where("Score >=0").unionAll(Readmissions_Measures_By_Provider_ID.where("Score >=0"))
-All_Measures_By_Provider_ID.cache()
 
 All_Measures_Mean_StdDev = Effective_Care_Measure_Mean_StdDev.where("StdDev >=0").unionAll(Readmissions_Measure_Mean_StdDev.where("StdDev >=0"))
-All_Measures_Mean_StdDev.cache()
 
 All_Measures_By_Provider_ID_Z_Scores_STAGE = All_Measures_By_Provider_ID.join(All_Measures_Mean_StdDev, "Measure_ID")
 
@@ -37,6 +35,5 @@ Measure_Count_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('Hospital_
 Avg_Z_Scores_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').avg('Z_Score').join(Measure_Count_By_Hospital,'hospital_name').where("count > 20")
 
 Top_Ten_Hospitals = Avg_Z_Scores_By_Hospital.orderBy(['avg(Z_Score)', 'hospital_name'], ascending=[0, 1]).limit(10)
-Top_Ten_Hospitals.cache()
 
-Top_Ten_Hospitals.select('hospital_name').saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/best_hospitals/")
+Top_Ten_Hospitals.select('hospital_name').rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/best_hospitals/")
