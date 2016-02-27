@@ -28,14 +28,14 @@ All_Measures_By_Provider_ID_Z_Scores_STAGE = All_Measures_By_Provider_ID.join(Al
 
 All_Measures_By_Provider_ID_Z_Scores = All_Measures_By_Provider_ID_Z_Scores_STAGE.selectExpr('Provider_ID', 'Measure_ID',"(Score-Mean)/StdDev  as Z_Score")
 
-All_Measures_Z_Scores_By_Hospital = All_Measures_By_Provider_ID_Z_Scores.join(tbl_hospitals, "Provider_ID").selectExpr('hospital_Name', 'Measure_ID','Z_Score')
+All_Measures_Z_Scores_By_Hospital = All_Measures_By_Provider_ID_Z_Scores.join(tbl_hospitals, "Provider_ID").selectExpr('Hospital_Name', 'Measure_ID','Z_Score')
 
-Measure_Count_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').count()
+Measure_Count_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('Hospital_Name').count()
 
-Avg_Z_Scores_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').avg('Z_Score').join(Measure_Count_By_Hospital,'hospital_name').where('count = 4')
+Avg_Z_Scores_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('Hospital_Name').avg('Z_Score').join(Measure_Count_By_Hospital,'Hospital_Name').where('count = 4')
 
 
 print "Top Ten Hospitals for Chosen Quality Measures"
-Top_Ten_Hospitals = Avg_Z_Scores_By_Hospital.select('hospital_name', 'avg(Z_Score)').orderBy(['avg(Z_Score)', 'hospital_name'], ascending=[1, 1]).limit(10)
+Top_Ten_Hospitals = Avg_Z_Scores_By_Hospital.select('Hospital_Name', 'avg(Z_Score)').orderBy(['avg(Z_Score)', 'Hospital_Name'], ascending=[1, 1]).limit(10)
 
 Top_Ten_Hospitals.rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/best_hospitals/")
