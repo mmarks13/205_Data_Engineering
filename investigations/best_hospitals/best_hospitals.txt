@@ -6,9 +6,12 @@ Hospital acquired potentially preventable venous thromboembolism - VTE_6
 Rate of readmission after discharge from hospital (hospital-wide) - READM_30_HOSP_WIDE
 
 
-I felt that these described a wide variety of quality aspects based on my experience as a healthcare consultant.  
+I felt that these described a wide variety of quality aspects in a minimal number of measures. This was simply based on my experience as a healthcare consultant.  
 
-To turn these into a single quality measure, I simple transformed them into z-scores and then 
+To turn these into a single quality measure, I simple transformed them into z-scores and then averaged the four measures for each hospital. Since they are all measures in which higher is worse, the lowest average z-score was determined to have the highest quality. 
+
+One big assumption was that all hospitals in the dataset had all four measures. If a hospital had only three of the measures, those three determined their rank. 
+
 
 The output table is in the following HDFS directory:
 /user/w205/hospital_compare_INVESTIGATIONS/best_hospitals/

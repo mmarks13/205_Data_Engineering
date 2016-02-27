@@ -1,0 +1,18 @@
+For this question I used all measures from tbl_effective_care. I simply aggregated all of them across each hospital to get a mean and standard deviation for each hospital. I grouped by hospital first to ensure that each hospital only had one of each measure. 
+
+To determine the variability, I calculated a coefficient of variation so measure variability could be compared despite differing units. 
+
+The output table is in the following HDFS directory:
+/user/w205/hospital_compare_INVESTIGATIONS/best_states/
+
+
+Row(Measure_Name=u'Elective Delivery', CoV=1.6439911930015414)
+Row(Measure_Name=u'Hospital Acquired Potentially-Preventable Venous Thromboembolism', CoV=1.2702270426999513)
+Row(Measure_Name=u'Patient left without being seen', CoV=1.0100175202192485)
+Row(Measure_Name=u'Median Time to ECG', CoV=0.73315375898394708)
+Row(Measure_Name=u'Admit Decision Time to ED Departure Time for Admitted Patients', CoV=0.63101439946044036)
+Row(Measure_Name=u'Median Time from ED Arrival to Provider Contact for ED patients', CoV=0.60117007315323701)
+Row(Measure_Name=u'Median Time to Transfer to Another Facility for Acute Coronary Intervention- Reporting Rate', CoV=0.48529058481906517)
+Row(Measure_Name=u'Fibrinolytic Therapy Received within 30 Minutes of Hospital Arrival', CoV=0.37558842722675401)
+Row(Measure_Name=u'Median Time from ED Arrival to ED Departure for Admitted ED Patients', CoV=0.34178724583209996)
+Row(Measure_Name=u'Head CT Scan Results for Acute Ischemic Stroke or Hemorrhagic Stroke Patients who Received Head CT or MRI Scan Interpretation Within 45 Minutes of ED Arrival', CoV=0.32744103751240272)
