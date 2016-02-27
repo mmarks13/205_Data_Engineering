@@ -29,7 +29,7 @@ All_Measures_By_Provider_ID_Z_Scores_STAGE = All_Measures_By_Provider_ID.join(Al
 
 All_Measures_By_Provider_ID_Z_Scores = All_Measures_By_Provider_ID_Z_Scores_STAGE.selectExpr('Provider_ID', 'Measure_ID',"(Score-Mean)/StdDev  as Z_Score")
 
-All_Measures_Z_Scores_By_State = All_Measures_By_Provider_ID_Z_Scores.join(tbl_hospitals, "Provider_ID").selectExpr('State', 'Measure_ID','Z_Score')
+All_Measures_Z_Scores_By_State = All_Measures_By_Provider_ID_Z_Scores.join(tbl_hospitals, "Provider_ID").selectExpr('state', 'Measure_ID','Z_Score')
 
 Measure_Count_By_State = All_Measures_Z_Scores_By_State.groupBy('state').count()
 

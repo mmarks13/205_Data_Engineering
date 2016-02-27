@@ -28,9 +28,9 @@ All_Measures_By_Provider_ID_Z_Scores_STAGE = All_Measures_By_Provider_ID.join(Al
 
 All_Measures_By_Provider_ID_Z_Scores = All_Measures_By_Provider_ID_Z_Scores_STAGE.selectExpr('Provider_ID', 'Measure_ID',"(Score-Mean)/StdDev  as Z_Score")
 
-All_Measures_Z_Scores_By_Hospital = All_Measures_By_Provider_ID_Z_Scores.join(tbl_hospitals, "Provider_ID").selectExpr('Hospital_Name', 'Measure_ID','Z_Score')
+All_Measures_Z_Scores_By_Hospital = All_Measures_By_Provider_ID_Z_Scores.join(tbl_hospitals, "Provider_ID").selectExpr('hospital_Name', 'Measure_ID','Z_Score')
 
-Measure_Count_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('Hospital_Name').count()
+Measure_Count_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').count()
 
 Avg_Z_Scores_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').avg('Z_Score').join(Measure_Count_By_Hospital,'hospital_name')
 
