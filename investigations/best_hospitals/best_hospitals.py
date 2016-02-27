@@ -36,6 +36,6 @@ Avg_Z_Scores_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_n
 
 
 print "Top Ten Hospitals for Chosen Quality Measures"
-Top_Ten_Hospitals = Avg_Z_Scores_By_Hospital.orderBy(['avg(Z_Score)', 'hospital_name'], ascending=[1, 1]).limit(10)
+Top_Ten_Hospitals = Avg_Z_Scores_By_Hospital.select('hospital_name', 'avg(Z_Score)').orderBy(['avg(Z_Score)', 'hospital_name'], ascending=[1, 1]).limit(10)
 
 Top_Ten_Hospitals.rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/best_hospitals/")

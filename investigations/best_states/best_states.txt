@@ -8,7 +8,7 @@ Rate of readmission after discharge from hospital (hospital-wide) - READM_30_HOS
 
 I felt that these described a wide variety of quality aspects in a minimal number of measures. This was simply based on my experience as a healthcare consultant.  
 
-To turn these into a single quality measure, I simple transformed them into z-scores and then averaged the four measures for each hospital. These were then aggregated accross each state. Since they are all measures in which higher is worse, the lowest average z-score was determined to have the highest quality. 
+To turn these into a single quality measure, I simply transformed them into z-scores and then averaged the four measures for each hospital. These were then aggregated accross each state. Since they are all measures in which higher is worse, the lowest average z-score was determined to have the highest quality. 
 
 The output table is in the following HDFS directory:
 /user/w205/hospital_compare_INVESTIGATIONS/best_states/
