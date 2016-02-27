@@ -13,10 +13,12 @@ tbl_effective_care.registerTempTable("tbl_effective_care")
 tbl_readmissions = sqlContext.read.parquet("/user/w205/hospital_compare_tbl_TRANSFORMED/tbl_readmissions/*parquet")
 tbl_readmissions.registerTempTable("tbl_readmissions")
 
-Effective_Care_Measure_Mean_StdDev = sqlContext.sql("Select Measure_ID, avg(Score) as Mean, stddev(Score) as StdDev From tbl_effective_care group by Measure_ID")
+
+
+Effective_Care_Measure_Mean_StdDev = sqlContext.sql("Select Measure_ID, avg(Score) as Mean, stddev(Score) as StdDev From tbl_effective_care Where (Measure_ID = 'OP_20' or Measure_ID = 'PC_01' or Measure_ID = 'VTE_6') group by Measure_ID")
 Readmissions_Measure_Mean_StdDev = sqlContext.sql("Select Measure_ID, avg(Score) as Mean, stddev(Score) as StdDev From tbl_readmissions group by Measure_ID")
 
-Effective_Care_Measures_By_Provider_ID = sqlContext.sql("Select Provider_ID, Measure_ID, avg(Score) as Score From tbl_effective_care group by Provider_ID, Measure_ID")
+Effective_Care_Measures_By_Provider_ID = sqlContext.sql("Select Provider_ID, Measure_ID, avg(Score) as Score From tbl_effective_care Where (Measure_ID = 'OP_20' or Measure_ID = 'PC_01' or Measure_ID = 'VTE_6') group by Provider_ID, Measure_ID")
 Readmissions_Measures_By_Provider_ID = sqlContext.sql("Select Provider_ID, Measure_ID, avg(Score) as Score From tbl_readmissions group by Provider_ID, Measure_ID")
 
 All_Measures_By_Provider_ID = Effective_Care_Measures_By_Provider_ID.where("Score >=0").unionAll(Readmissions_Measures_By_Provider_ID.where("Score >=0"))
@@ -31,9 +33,11 @@ All_Measures_Z_Scores_By_State = All_Measures_By_Provider_ID_Z_Scores.join(tbl_h
 
 Measure_Count_By_State = All_Measures_Z_Scores_By_State.groupBy('state').count()
 
-Avg_Z_Scores_By_State = All_Measures_Z_Scores_By_State.groupBy('state').avg('Z_Score').join(Measure_Count_By_State,'state').where("count > 20")
+Avg_Z_Scores_By_State = All_Measures_Z_Scores_By_State.groupBy('state').avg('Z_Score').join(Measure_Count_By_State,'state')
 
-Top_Ten_States = Avg_Z_Scores_By_State.orderBy(['avg(Z_Score)', 'state'], ascending=[0, 1]).limit(10)
+
+print("Top 10 States for chosen quality measures")
+Top_Ten_States = Avg_Z_Scores_By_State.orderBy(['avg(Z_Score)', 'state'], ascending=[1, 1]).limit(10)
 
 Top_Ten_States.select('state').rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/best_states")
 

@@ -24,7 +24,11 @@ hive -f /home/w205/Ex_1_github/hive_base_ddl.sql
 
 /data/spark15/bin/pyspark /home/w205/Ex_1_github/investigations/best_hospitals/best_hospitals.py
 /data/spark15/bin/pyspark /home/w205/Ex_1_github/investigations/best_states/best_states.py
-
+/data/spark15/bin/pyspark /home/w205/Ex_1_github/investigations/hospital_variability/hospital_variability.py
+/data/spark15/bin/pyspark /home/w205/Ex_1_github/investigations/hospitals_and_patients/hospitals_and_patients.py
 
 hdfs dfs -cat /user/w205/hospital_compare_INVESTIGATIONS/best_hospitals/*
 hdfs dfs -cat /user/w205/hospital_compare_INVESTIGATIONS/best_states/*
+hdfs dfs -cat /user/w205/hospital_compare_INVESTIGATIONS/hospital_variability/*
+hdfs dfs -cat /user/w205/hospital_compare_INVESTIGATIONS/hospitals_and_patients/*
+

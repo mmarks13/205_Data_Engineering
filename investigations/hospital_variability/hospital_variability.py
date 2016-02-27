@@ -14,14 +14,15 @@ Effective_Care_Measure_Mean_by_Provider_ID = sqlContext.sql("Select Provider_ID,
 
 Effective_Care_Measure_Mean_by_Provider_ID.registerTempTable("Effective_Care_Measure_Mean_by_Provider_ID")
 
-Std_Dev_By_Measure_ID = sqlContext.sql("Select Measure_ID, mean(Mean_Score) as mean, stddev(Mean_Score) as StdDev From Effective_Care_Measure_Mean_by_Provider_ID group by Measure_ID")
+Std_Dev_By_Measure_ID = sqlContext.sql("Select Measure_ID, avg(Mean_Score) as mean, stddev(Mean_Score) as StdDev From Effective_Care_Measure_Mean_by_Provider_ID group by Measure_ID")
 Std_Dev_By_Measure_ID.registerTempTable("Std_Dev_By_Measure_ID")
 
-CoV_by_Measure_ID = sqlContext.sql("Select Measure_ID, mean/StdDev as CoV From Std_Dev_By_Measure_ID")
+CoV_by_Measure_ID = sqlContext.sql("Select Measure_ID, StdDev/mean as CoV From Std_Dev_By_Measure_ID")
 
 CoV_By_Measure_Name = CoV_by_Measure_ID.join(tbl_measure_dates,"Measure_ID").select('Measure_Name','CoV')
 
+print "Top Ten Varying Measures"
 Top_Ten_Varying_Procedures = CoV_By_Measure_Name.orderBy(['CoV', 'Measure_Name'], ascending=[0, 1]).limit(10)
 
-Top_Ten_Varying_Procedures.select('Measure_Name').rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/hospital_variability")
+Top_Ten_Varying_Procedures.rdd.saveAsTextFile("/user/w205/hospital_compare_INVESTIGATIONS/hospital_variability")
 
