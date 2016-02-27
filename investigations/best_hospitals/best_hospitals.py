@@ -30,9 +30,7 @@ All_Measures_By_Provider_ID_Z_Scores = All_Measures_By_Provider_ID_Z_Scores_STAG
 
 All_Measures_Z_Scores_By_Hospital = All_Measures_By_Provider_ID_Z_Scores.join(tbl_hospitals, "Provider_ID").selectExpr('hospital_Name', 'Measure_ID','Z_Score')
 
-Measure_Count_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').count()
-
-Avg_Z_Scores_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').avg('Z_Score').join(Measure_Count_By_Hospital,'hospital_name')
+Avg_Z_Scores_By_Hospital = All_Measures_Z_Scores_By_Hospital.groupBy('hospital_name').avg('Z_Score')
 
 
 print "Top Ten Hospitals for Chosen Quality Measures"

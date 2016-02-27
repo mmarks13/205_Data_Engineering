@@ -35,6 +35,5 @@ tbl_Patient_Experience = sqlContext.sql("Select Provider_ID, (HCAHPS_Base_Score 
 tbl_Z_Scores_Patient_Experience = All_Measures_By_Provider_ID_Z_Scores_AGG.join(tbl_Patient_Experience, "Provider_ID")
 
 print("Correlation between chosen quality measures and Patient Survey Results")
-write.csv(tbl_Z_Scores_Patient_Experience.stat.corr('avg(Z_Score)','Patient_Experience_of_Care_Domain_Score'))
 print tbl_Z_Scores_Patient_Experience.stat.corr('avg(Z_Score)','Patient_Experience_of_Care_Domain_Score')
 

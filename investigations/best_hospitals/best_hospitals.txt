@@ -1,1 +1,14 @@
-best_hospitals.txt
+For this question I used the following measures:
+
+Door to diagnostic eval - OP_20
+Percent of newborns whose deliveries were scheduled early (1-3 weeks early), when a scheduled delivery was not medically necessary - PC_01
+Hospital acquired potentially preventable venous thromboembolism - VTE_6
+Rate of readmission after discharge from hospital (hospital-wide) - READM_30_HOSP_WIDE
+
+
+I felt that these described a wide variety of quality aspects based on my experience as a healthcare consultant.  
+
+To turn these into a single quality measure, I simple transformed them into z-scores and then 
+
+The output table is in the following HDFS directory:
+/user/w205/hospital_compare_INVESTIGATIONS/best_hospitals/

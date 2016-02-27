@@ -31,9 +31,7 @@ All_Measures_By_Provider_ID_Z_Scores = All_Measures_By_Provider_ID_Z_Scores_STAG
 
 All_Measures_Z_Scores_By_State = All_Measures_By_Provider_ID_Z_Scores.join(tbl_hospitals, "Provider_ID").selectExpr('state', 'Measure_ID','Z_Score')
 
-Measure_Count_By_State = All_Measures_Z_Scores_By_State.groupBy('state').count()
-
-Avg_Z_Scores_By_State = All_Measures_Z_Scores_By_State.groupBy('state').avg('Z_Score').join(Measure_Count_By_State,'state')
+Avg_Z_Scores_By_State = All_Measures_Z_Scores_By_State.groupBy('state').avg('Z_Score')
 
 
 print("Top 10 States for chosen quality measures")
