@@ -8,10 +8,10 @@ pip install pandas
 export PYSPARK_PYTHON=/usr/bin/python
 
 #download data and store in HDFS
-bash /home/w205/Ex_1_github/load_data_lake.sh
+bash /home/w205/Ex_1_github/loading_and_modelling/load_data_lake.sh
 
 #Create Tables
-hive -f /home/w205/Ex_1_github/hive_base_ddl.sql
+hive -f /home/w205/Ex_1_github/loading_and_modelling/hive_base_ddl.sql
 
 #transform all the tables in pyspark and save them as text files
 /data/spark15/bin/spark-submit /home/w205/Ex_1_github/transforming/transform_tbl_Hospitals.py
