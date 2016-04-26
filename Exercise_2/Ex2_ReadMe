@@ -1,0 +1,9 @@
+As we talked about, I used Microsoft Azure for this exercise.
+
+Start_Stream.py - Starts the stream of tweets (at least it does on my computer). 
+-I will leave the Azure event hub, stream analytics job and SQL database running until I receive a grade to capture, process and store the data from the Start_Stream.py script. 
+
+finalresults.py - Functions like the one required for assignment. This uses an ODBC connection to connect the Azure SQL database that captures the tweet words and their counts. This will run without Start_Stream.py and should work on any computer (needs pandas library). 
+
+histogram.py - Functions like the one required for assignment. Connects to the Azure SQL database the same way as finalresults.py. 
+
