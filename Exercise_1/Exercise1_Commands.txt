@@ -1,0 +1,43 @@
+https://data.medicare.gov/views/bg9k-emty/files/Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
+mv Nqcy71p9Ss2RSBWDmP77H1DQXcyacr2khotGbDHHW_s\?content_type\=application%2Fzip\;\ charset\=binary Hospital_Data
+mkdir Ex1_Raw_Hospital_Data
+mv Hospital_Data Ex1_Raw_Hospital_Data
+unzip Hospital_Data -d Ex1_Raw_Hospital_Data/
+tail -n +2 *.csv > *.csv
+
+for file in *.csv; do mv "$file" "${file//[[:space:]]}"; done
+mv HospitalGeneralInformation.csv hospitals.csv
+mv TimelyandEffectiveCare-Hospital.csv effective_care.csv
+mv ReadmissionsandDeaths-Hospital.csv readmissions.csv
+mv hvbp_hcahps_05_28_2015.csv survey_responses.csv
+mv Measure Dates.csv measure_dates.csv
+
+rm Hospital_Data
+mkdir /home/w205/Hospital_Data/
+cd Hospital_Data/
+mkdir /home/w205/Hospital_Data/Hospitals
+mkdir /home/w205/Hospital_Data/Effective_Care
+mkdir /home/w205/Hospital_Data/Readmissions
+mkdir /home/w205/Hospital_Data/Survey_Responses
+mkdir /home/w205/Hospital_Data/Measure_Dates
+
+mv /home/w205/Ex1_Raw_Hospital_Data/measure_dates.csv /home/w205/Hospital_Data/Measure_Dates/
+mv /home/w205/Ex1_Raw_Hospital_Data/hospitals.csv /home/w205/Hospital_Data/Hospitals/
+mv /home/w205/Ex1_Raw_Hospital_Data/readmissions.csv /home/w205/Hospital_Data/Readmissions/
+mv /home/w205/Ex1_Raw_Hospital_Data/effective_care.csv /home/w205/Hospital_Data/Effective_Care/
+mv /home/w205/Ex1_Raw_Hospital_Data/survey_responses.csv /home/w205/Hospital_Data/Survey_Responses/
+
+tail -n +2 /home/w205/Hospital_Data/Measure_Dates/measure_dates.csv > /home/w205/Hospital_Data/Measure_Dates/measure_dates.csv
+tail -n +2 /home/w205/Hospital_Data/Hospitals/hospitals.csv > /home/w205/Hospital_Data/Hospitals/hospitals.csv
+tail -n +2 /home/w205/Hospital_Data/Readmissions/readmissions.csv > /home/w205/Hospital_Data/Readmissions/readmissions.csv
+tail -n +2 /home/w205/Hospital_Data/Effective_Care/effective_care.csv > /home/w205/Hospital_Data/Effective_Care/effective_care.csv
+tail -n +2 /home/w205/Hospital_Data/Survey_Responses/survey_responses.csv > /home/w205/Hospital_Data/Survey_Responses/survey_responses.csv
+
+
+
+
+head -n 1 hospitals.csv
+head -n 1 effective_care.csv
+head -n 1 readmissions.csv
+head -n 1 survey_responses.csv
+
