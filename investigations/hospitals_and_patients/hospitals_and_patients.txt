@@ -1,0 +1,7 @@
+
+For this questions I looked at the correlation between the average of four metrics (normalized as z-scores) from the other questions and the sum of HCAHPS_Base_Score and HCAHPS_Consistency_Score from the survey. I chose HCAHPS_Base_Score and HCAHPS_Consistency_Score since they are summary measures of all the survey results. 
+
+I found a negative correlation of .119. This is expected since for the survey higher scores are better, while lower scores are better for the four metrics. 
+
+Correlation between chosen quality measures and Patient Survey Results
+-0.119667457461
